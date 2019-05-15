@@ -1,0 +1,83 @@
+<center>
+<table bgcolor="#E1E5EC" width=700 padding=1 cellspacing=0 border=0>
+<!--<tr><td colspan=3><b>Search here for movies, music, spoken word recordings, etc.</b></td></tr>-->
+<tr>
+<td>
+<form method=GET name=SearchForm action=<?php print "\"$this_file\"";?>>
+<input type="hidden" name="mode" value="search">
+Search in: 
+<select name=field>
+ <option value=any>Any field</option>
+ <option value=author <?php if ($field == "author") {print "SELECTED";}?> >Contributor</option> 
+ <option value=title <?php if ($field == "title") {print "SELECTED";}?>>Title</option>
+ <option value=lcsh <?php if ($field == "lcsh") {print "SELECTED";}?>>Subject</option>
+</select>
+
+
+<?php
+$disp = str_replace ("\\","",$terms);
+print "<input type=text name=terms value=\"$disp\"><BR>\n";
+?>
+
+<div id="lesser_search_options">
+Combine terms with: 
+<input type=radio name=bool value=and <?php if ($bool != "or") {print "CHECKED";}?> >and
+<input type=radio name=bool value=or <?php if ($bool == "or") {print "CHECKED";}?>>or<BR>
+Exclude terms: <input type=text name=exclude value=<?php print "\"$exclude\"";?> ><br>&nbsp;<br>
+</div>
+<input type=submit>
+<input type=button value="Reset Form" onClick="clearForm()">
+
+</td>
+<td width=20>&nbsp;</td>
+<td>
+Limit to materials with<br>Public Performance Rights
+<input type=checkbox name=ppr <?php if ($ppr == "on") { print "CHECKED";}?>><hr>
+Include formats: <BR>
+<?php
+
+if (sizeof($format) > 0) {
+  foreach ($format as $item) { 
+    if ($item == "LP") { $lp = "CHECKED"; }
+    if ($item == "CD") { $cd = "CHECKED"; }
+    if ($item == "CT") { $ct = "CHECKED"; }
+    if ($item == "DVD") { $dvd = "CHECKED"; }
+    if ($item == "MP") { $mp = "CHECKED"; }
+    if ($item == "VHS"){ $vhs = "CHECKED"; }
+    if ($item == "Real") { $real = "CHECKED"; } 
+    //    print "$item<BR>";
+  } #end foreach
+}#end if format not specified
+	
+else { $lp = $cd = $ct = $dvd = $mp = $vhs = $real = "CHECKED"; }
+
+
+print "<input type=checkbox name=\"format[]\" value=LP $lp>LP (record)
+<input type=checkbox name=\"format[]\" value=CD $cd>CD
+<input type=checkbox name=\"format[]\" value=CT $ct>Cassette<BR>
+<input type=checkbox name=\"format[]\" value=VHS $vhs>VHS
+<input type=checkbox name=\"format[]\" value=DVD $dvd>DVD
+<input type=checkbox name=\"format[]\" value=MP $mp>16mm Film<BR>
+<input type=checkbox name=\"format[]\" value=Real $real>RealVideo (Online)";
+
+?>
+
+<input type=hidden name=start value=0>
+
+</td>
+
+<!--
+<td width=10>&nbsp;</td>
+<td>
+<a href="av-browse.php" style="background-color: #fdfcf9">Browse all subject headings</a><br>
+<br><a href="$this_file?field=lcsh&terms=feature+films" style="background-color: #fdfcf9">Browse Feature Films</a><br>
+-->
+
+</td>
+</tr>
+<tr><td colspan="3"><center><a href="/lib/find/av/index.php?mode=search&show_only=pub_perf">All videos with public performance rights</a><br /><a href="/lib/find/av/index.php?mode=search&show_only=pub_perf_features">Just feature films with public performance rights</a></center></td></tr>
+</table>
+</center>
+</form>
+
+
