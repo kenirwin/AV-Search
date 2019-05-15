@@ -1,0 +1,208 @@
+body { font-family: Arial, Helvetica, Arial, sans-serif }
+h3 { font-size: 100% }
+h2 { font-size: 110% }
+#h1 { font-size: 120% }
+
+a img { border: none } 
+.cover { float: left } 
+.record_metadata { margin-left: 110px }
+.metadata_return { 
+ background-color:#E1E5EC;
+}
+
+/* 
+   prop_cover and clear act as a minimum-height hack for displaying cover imgs
+   see: http://www.greywyvern.com/code/min-height-hack
+*/
+
+.prop_cover {
+  height: 160px;
+  float: right;
+  width: 1px;
+}
+.clear {
+  clear: right; /* "both" will make the div as long as the sidebar! */
+  height: 1px;
+  overflow:hidden;
+ }
+
+.metadata_return .title { font-weight: bold }
+.metadata_return .details .detail_line{ text-indent: -1em; margin-left: 1em;}
+.hide_metadata { 
+ font-weight: bold;
+ float: right; 
+ border: 1px solid grey; 
+ padding: .05em; 
+ margin-right: .25em; 
+ color: grey;
+}
+.summary { margin-top: 1em; } 
+a.eliminate_facet {
+ color: grey;
+ text-decoration: none;
+}
+a.eliminate_facet { 
+ border: 1px solid grey; 
+ padding-top: 0; 
+ font-weight: bold; 
+ font-size: 60%;
+ line-height: .5em;
+ font-variant: small-caps; 
+ vertical-align: super;
+} 
+
+#facets { 
+ float: left;
+ background-color: #E1E5EC; /* blue-ish grey */
+ font-size: 78% ;
+ height: 150%;
+ padding-right: .5em;
+ padding-left: .2em;
+ width: 16em;
+   }
+
+#facets h2 {
+  margin-bottom: -.5em;
+}
+#facets h3 {
+  margin-bottom: -1em;
+}
+
+#facets ul { 
+  margin-left: 0em;
+  text-indent: -2.5em;
+}
+
+.ie #facets ul { 
+  padding-left: 3em;
+}
+
+
+
+#front_page_header { 
+  margin-left: 2em;
+  padding-top: .2em;
+  line-height: 50%;
+}
+
+# the class .genre_list is not in use; see id #genre_list below
+.genre_list {
+  -moz-column-count: 3;
+  -moz-column-gap: 1em;
+  -webkit-column-count: 3;
+  -webkit-column-gap: 1em;
+}
+
+#genre_list_header { margin-left: 100px }
+#genre_list_div { margin-left: 100px;}
+#genre_list { list-style-type: none; margin-left: 0px;} 
+#genre_list li { 
+  float: left; 
+  width: 180px; 
+  margin: 0px 20px 0px 0px;
+  padding: 0px; 
+
+}
+
+#facets li {
+  list-style: none;
+  margin-bottom: .125em;
+}
+#facets li a {
+  text-decoration: none;
+ color: #002863;
+}
+#facets li a:hover { 
+  text-decoration: underline;
+  background-color: #E1E5EC;
+}
+
+
+
+
+#covers {
+ float: right;
+ width: 390px;
+}
+#results { 
+  background-color: #ffff99; 
+  padding: 1em;	
+  margin-left: 17em;
+  margin-right: 10%; #400px;
+  font-size: 90%;
+}
+
+.prop_page {
+  height: 400px;
+  float: right;
+  width: 1px;
+	background: red;
+}
+.clear_all { 
+  clear: both; 
+  height: 1px;
+}
+
+table.bibItems{
+    border: 1px solid black;
+    margin-top: .5em;
+}
+
+/* search styles */
+
+#search_strip {
+ background-color: #E1E5EC; /* blue-ish grey */
+ padding: 0.3em;
+ margin-left: 11em;
+ margin-right: 20%;
+}
+
+#lesser_search_options {
+ text-align:left;
+ font-size: 85%;
+ margin-left: 2em;
+}
+
+.ie #lesser_search_options {
+ margin-left: 4em;
+}
+
+#search_results_area {
+ margin-left: 5em;
+ margin-right: 5em;
+}
+
+#search_results_list li {
+ padding-top: .35em;
+ padding-bottom: .5em;
+}
+
+.full_av_record {
+ font-size: 90%;
+ background-color: #E1E5EC; /* blue-ish grey */
+ border: 1px solid black;
+}
+
+.full_av_record th { vertical-align: top }
+
+.search_cover {
+ float:right;
+}
+
+.search_results_prop { 
+ height: 50px; 
+ float:right;
+ width:1px;
+}
+
+.margin_icon_feature_film { 
+ position: relative;
+ left: -95px;
+ right: 0px;
+ top: 30px;
+ z-index: 2;
+ margin-right: -53px;
+ margin-top: -30px;
+ float: left;
+}
+
