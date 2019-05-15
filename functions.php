@@ -75,7 +75,7 @@ function DoSearch ($request, $RequestURI) {
       
       // Formats
       $formats = array();
-  if (sizeof($format) > 0) {
+      if (array_key_exists('format',$request)) {
     foreach ($format as $item) { 
       
       if ($item == "LP") { array_push ($formats, "LP","SR","EP","KS","CRL2","we","ft","ex","FS","ARC","Angel"); }
@@ -83,7 +83,7 @@ function DoSearch ($request, $RequestURI) {
       if ($item == "CT") { array_push ($formats, "CT","ZCTY"); } 
       if (($item == "DVD")||($item == "MP")) { array_push ($formats, "$item"); }
       if ($item == "VHS") { array_push ($formats,"VHS","VT");}
-      if ($item == "Real") { array_push ($formats, "http");}
+      if ($item == "Real" || preg_match('/\[electronic resource\]/',$title)) { array_push ($formats, "http");}
     } # end foreach format 
 	} #end if format specified
 			   
@@ -440,11 +440,13 @@ function getEzraStatus($record) {
     $xpath = new DOMXPath($dom);
     /* select the part of the record we want */
     $result = $xpath->query("//table[@id='bib_items']");
-    $bib_info = $dom->saveHTML($result->item(0));
-    
-    /* print what's left */
-    return $bib_info;
-    
+    if ($result->length > 0) {
+        $bib_info = $dom->saveHTML($result->item(0));
+        return $bib_info;
+    }
+    else {
+        return false;
+    }
 }
 
 function getEzraBibByRecord($record) {
