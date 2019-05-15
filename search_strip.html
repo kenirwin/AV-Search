@@ -1,0 +1,15 @@
+<div id="search_strip">
+<form method=GET name=SearchForm action=<?php print "\"$this_file\"";?>>
+<input type="hidden" name="mode" value="search">
+Switch to searching <strong>all</strong> Audio-Visual materials: 
+<input type=hidden name=field value=any>
+
+<?php
+$disp = str_replace ("\\","",$terms);
+print "<input type=text name=terms value=\"$disp\">\n";
+?>
+<input type=submit>
+</form>
+</div><!--id=search strip-->
+
+
