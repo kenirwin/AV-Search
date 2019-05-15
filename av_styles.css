@@ -272,6 +272,29 @@ table.bibItems{
      padding: 0px;
      background: #990000;
 }
- #header {
-         height: 80px;
+
+@media all and (max-width: 1024px) {
+
+     #permlink { display:inline-block; width: 65%; word-wrap:break-word; }
+     .main-links {
+         position: relative;
+         color: #000000;
+         right: 0px;
     }
+     .main-links li {
+         border-left: solid 1px black !important;
+    }
+     .main-links li:first-child {
+         border-left: none !important;
+    }
+     .main-links a {
+         color: #000000;
+         font-size: 12px;
+    }
+     .main-links {
+         top: 0px;
+    }
+     #header {
+         height: 80px;
+     }
+}
