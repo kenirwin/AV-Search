@@ -13,13 +13,14 @@ a img { border: none }
 /* 
    prop_cover and clear act as a minimum-height hack for displaying cover imgs
    see: http://www.greywyvern.com/code/min-height-hack
-*/
 
 .prop_cover {
   height: 160px;
   float: right;
   width: 1px;
 }
+*/
+
 .clear {
   clear: right; /* "both" will make the div as long as the sidebar! */
   height: 1px;
