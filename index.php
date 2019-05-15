@@ -1,7 +1,29 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-    "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head><title>Audio-Visual Search of Library Materials</title>
+<!DOCTYPE html> 
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+<link rel="stylesheet" type="text/css" href="/scripts/ProStyles.css" />
+<link rel="stylesheet" type="text/css" href="/screens/styles.css" />
+<script type="text/javascript" src="/scripts/elcontent.js"></script>
+<script type="text/javascript" src="/scripts/common.js"></script>
+      <meta charset="UTF-8">
+      <title>Audio-Visual Search of Library Materials</title>
+      <meta name="viewport" content="width=device-width,user-scalable=yes">
+      <link rel="shortcut icon" href="https://www.wittenberg.edu/sites/default/files/apple-icon-180x180_0.png" type="image/png" />
+   </head>
+   <body>
+      <div id="header">
+         <div class="logo">
+            <a href="https://www.wittenberg.edu"><img alt="Wittenberg Logo" src=
+    "http://ezra.wittenberg.edu/screens/wittlogo.png" width="200"></a>
+         </div>
+         <div class="main-links">
+            <ul>
+               <li><a href="http://www.wittenberg.edu/lib">Library Website</a></li>
+               <li><a href="/search~">Ezra Main Page</a></li>
+            </ul>
+         </div>
+      </div>
+
 <script type="text/javascript"
          src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js">
 </script>
