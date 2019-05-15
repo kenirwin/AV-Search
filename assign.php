@@ -1,6 +1,8 @@
-<?
-include ("/docs/lib/include/print_top.html"); 
+<?php
 include ("genre_scripts.php");
+include ("config.php");
+include ("pdo_connect.php");
+
 print('
 <style>
 .details {
@@ -21,7 +23,7 @@ print('
 
 
 
-if ($add_genres) {
+if (array_key_exists('add_genres',$_REQUEST)) {
   foreach ($_POST as $k=>$v) {
     if ((preg_match("/^b\d+/",$k)) && strlen($v) > 0) {
       $tempstring = "image_file_". $k;
@@ -34,9 +36,10 @@ if ($add_genres) {
       else 
 	$and = "";
       $now = date ("Y-m-d");
+      $db = ConnectPDO();
       $q = "UPDATE av_genre_browse SET imdb_genres='$v' $and, last_updated='$now' WHERE record_id ='$k'";
       //      print "<br>$q\n";
-      if (mysql_query($q)) { print "Added: $k => $v<br>\n"; }
+      if ($db->query($q)) { print "Added: $k => $v<br>\n"; }
       else { print "<p class=fail>FAILED to add $k => $v<br>$q</p>\n"; }
     }
       
@@ -47,8 +50,9 @@ ShowUnassigned();
 
 function ShowUnassigned() {
   $q = "SELECT * FROM av_genre_browse WHERE subject like '%feature film%' and (imdb_genres IS NULL or imdb_genres = \"\") order by last_updated DESC";
-  $r = mysql_query($q);
-  while ($myrow = mysql_fetch_assoc($r)) {
+  $db = ConnectPDO();
+  $stmt = $db->query($q);
+  while ($myrow = $stmt->fetch(PDO::FETCH_ASSOC)) {
     extract($myrow);
     list ($title, $details) = SplitTitle($title);
     $url = "http://ezra.wittenberg.edu/record=". substr($record_id,0,8);

@@ -1,0 +1,18 @@
+#!/usr/bin/expect -f
+
+spawn /usr/bin/mysql -u kirwin -D lib -p 
+expect "Enter password: "
+send "rabbit\r"
+expect "mysql> "
+send "TRUNCATE TABLE `av2_bak`;\r"
+expect "mysql> "
+send "INSERT INTO `lib`.`av2_bak` SELECT * FROM `lib`.`av2`;\r"
+expect "mysql> "
+send "TRUNCATE TABLE `av2`;\r"
+expect "mysql> "
+send "INSERT INTO `lib`.`av2` SELECT * FROM `lib`.`av2_in` WHERE bib_record NOT LIKE '%RECORD%';\r"
+expect "mysql> "
+send "exit"
+
+
+
