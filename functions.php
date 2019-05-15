@@ -233,7 +233,7 @@ function DoSearch ($request, $RequestURI) {
 
 
 function GetGenre ($genre,$show="") {
-  global $format, $REQUEST_URI, $suppress_genres;
+  global $format, $suppress_genres;
   $_REQUEST['genre'] = stripslashes($_REQUEST['genre']);
 
   if ($show == "all" || $_REQUEST['show'] == "all") { 
@@ -246,8 +246,9 @@ function GetGenre ($genre,$show="") {
   if ($format) { 
     if ($format == "Online Video") { $format = "<a href"; }
     $add_format_query = " AND `call` LIKE '$format%'"; 
-    if ($format == "<a href") { $format ="Online Video"; }
-    $format_limit_elim = preg_replace("/&*format=$format&*/","&",$REQUEST_URI);
+    if ($format == "<a href") { $format ="Online Video";}
+    $uri_string = urldecode($_SERVER['REQUEST_URI']);
+    $format_limit_elim = preg_replace("/\&*format=$format\&*/","&",$uri_string);
     $format_limit_elim = "<a href=\"$format_limit_elim\" class=\"eliminate_facet\">x</a>\n";
     $echo_format_limit = ", limit to $format"."s$format_limit_elim";
   }
